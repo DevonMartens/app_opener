@@ -6,8 +6,9 @@ import os
 
 
 #function to run apps
-
-
+def addApp():  
+    filename = filedialog.askopenfile(initialdir="/", title="Select file",
+    filetypes=(("executables","*.exe"), ("all files", "*.*")))
  # body structure of app
 root = tk.Tk()
 
@@ -22,7 +23,8 @@ frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
 
 #add button
 openFile = tk.Button(root, text="Open File", padx=10, pady=5, 
-fg="black", bg="#08e1d7" command="addApp")
+fg="black", bg="#08e1d7", command=addApp)
+
 openFile.pack()
 #add button
 runApp = tk.Button(root, text="Run Applications", padx=10, pady=5, 
