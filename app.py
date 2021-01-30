@@ -22,7 +22,7 @@ frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
 
 #add button
 openFile = tk.Button(root, text="Open File", padx=10, pady=5, 
-fg="black", bg="#08e1d7")
+fg="black", bg="#08e1d7" command="addApp")
 openFile.pack()
 #add button
 runApp = tk.Button(root, text="Run Applications", padx=10, pady=5, 
