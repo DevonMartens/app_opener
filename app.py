@@ -45,8 +45,13 @@ fg="black", bg="#08e1d7", command=addApp)
 openFile.pack()
 #add button
 runApp = tk.Button(root, text="Run Applications", padx=10, pady=5, 
-fg="black", bg="#08e1d7" command=runApps ) 
+fg="black", bg="#08e1d7", command=runApps) 
 
 runApp.pack()
 # run gui
 root.mainloop()
+
+# loop over apps and openFile
+with open('save.txt', 'w') as f:
+    for apps in apps:
+        f.write(app + ',')
