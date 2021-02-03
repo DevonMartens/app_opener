@@ -7,15 +7,22 @@ import os
  # body structure of app
 root = tk.Tk()
 #empty to add appended apps to
-apps = []
+apps = []  
 
+if os.path.isfile('save.txt'):
+    with open('save.txt', 'r') as f: 
+        tempApps = f.read()
+        print(tempApps)
+        #read push to array
+        tempApps = tempApps.split(',')
+        apps = [ x for x in tempApps if x.strip()]
 #function to open apps
 def addApp():  
     #to delete app acess to whats in frame
     for widget in frame.winfo_children():
         widget.destroy()
 
-    filename = filedialog.askopenfile(initialdir="/", title="Select file",
+    filename = filedialog.askopenfile(initialdir= "/", title="Select file",
     filetypes=(("executables","*.exe"), ("all files", "*.*")))
 
 # append to apps
@@ -48,6 +55,10 @@ runApp = tk.Button(root, text="Run Applications", padx=10, pady=5,
 fg="black", bg="#08e1d7", command=runApps) 
 
 runApp.pack()
+
+for app in apps:
+    label = tk.Label(frame, text="app")
+    label.pack()
 # run gui
 root.mainloop()
 
